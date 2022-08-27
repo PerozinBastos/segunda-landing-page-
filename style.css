@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap'); /*minhas fontes do Google */
+
+@keyframes animação { /*minha animação do background */
+    from {background-color: white;}
+    to   {background-color: rgb(240, 240, 193);}
+     }
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  /* nao vazar a margem */
+    font-family: 'Poppins', sans-serif; /* backup de fonto secundaria */
+    text-decoration: none; /* sublinhado texto da minha ul */
+    list-style: none; /* tira definicoes da lista ul */
+    
+}
+
+body{
+    color: black; /* fonte */
+    background: white;
+}
+
+
+.navegation{
+    display: flex;  /* flexbox */
+    justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0 0.1rem 0.5rem #ccc;  /*efeito de sombra no box */
+    width: 100%; 
+    background: white;
+    transition: all 0.5s; /*efeito ao entrar na pagina */
+    position: fixed; /* fixado cabeçalho */
+
+}
+
+.navegation .logo {
+    color: black; /* da fonte */
+    font-weight: 700;  /* peso da fonte que importei */
+    font-size: 1.5rem; /* daria 24px */
+    
+}
+
+.logo span { /* 2 dao mais peso a esse css */
+    color: red;
+}
+
+.navegation ul{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+   /*padding-right: 20rem;*/
+
+}
+
+.navegation ul li a{   /* minhas listas no a */
+    color: black;
+    font-size: 17px;
+    font-weight: 400;    /* com base no que importei do googlefonts */
+    transition: all 0.5s;
+}
+
+.navegation ul li a:hover { 
+        color: red;  /* passar mouse em cima, efeito hover */
+}
+
+.menu{
+    cursor: pointer;
+    display: none;   /* para só aparecer quando habilitar o media query no responsivo */
+    
+}
+
+.menu .bar{   /*colocando junto vai permanecer a conf. do bar em cima da do menu */
+        display: block;    /* ficar um item em baixo do outro */
+        transition: all 0.5s;
+        width: 25px;
+        height: 5px;
+        border-radius: 2px; /* elementos com bordas arredondadas, curvatura de 2px nesse caso, 50% por exemplo forma um circulo */
+        background-color: black; /*da box que to usando como menu para celular */
+        margin: 4px auto; /* automatico para laterais */
+
+}
+
+.menu .bar:nth-child(1) {  
+    background-color: red;  /* colocar propriedade em um filho so, precisam ter mesmo nome de class */
+}
+    
+.menu .bar:nth-child(3) {
+    background-color: red;
+}
+    
+ 
+.home {
+    padding: 0px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    animation-name: animação;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    
+}
+
+h4 {
+    color:red;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 4rem;
+}
+
+p {
+    padding: 1rem;
+}
+
+.home .btn {
+    background: red;
+    border-radius: 10px;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 700;
+    transition: all 0.5s;
+    
+}
+
+.btn:hover {
+    background: yellow;
+}
+
+.sucosimg img {
+    width: 100%;
+}
+
+
+@media (max-width:785px) {
+    .navigation{
+        padding: 18px 20px;
+    }
+    .menu{
+        display: block;
+    }
+    .menu.ativo .bar:nth-child(1){
+        transform:  translateY(8px) rotate(45deg);  /*deg calculo online */
+    }
+    .menu.ativo .bar:nth-child(2) {
+        opacity: 0;    /*sumir quando acionar */
+    }
+    .menu.ativo .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        background: white;
+        gap: -10px;
+        transition: 0.3s;
+    }
+    .nav-menu.ativo{
+        right: 0;
+    }
+    .nav-item{
+        margin: 16px 0;
+    }
+    
+    .home{
+        padding: 100px 2%;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+        gap: 5rem;
+    }
+    
+    h4{
+        font-size: 15px;
+    }
+    
+    h1{
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    
+    p{
+        font-size: 15px;
+    }
+    
+    .sucosimg{
+        width: 100%;
+    }
+}
